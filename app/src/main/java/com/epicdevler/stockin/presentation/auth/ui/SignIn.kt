@@ -29,7 +29,7 @@ fun SignIn(navController: NavController? = null, viewModel: AuthViewModel? = nul
     viewModel!!.setUiContent(AuthContentState(state = AuthContentState.UIState.SignIn))
     val title = remember { mutableStateOf("Login to continue") }
     val subTitle =
-        remember { mutableStateOf("Enter the following credentials to kickstart your registration process.") }
+        remember { mutableStateOf("Enter the following credentials to login to your account.") }
 
     var emailValue by remember { mutableStateOf(TextFieldValue("")) }
     var passwordValue by remember { mutableStateOf(TextFieldValue("")) }
