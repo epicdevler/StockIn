@@ -95,7 +95,7 @@ fun SignIn(navController: NavController? = null, viewModel: AuthViewModel? = nul
 
 
 @Composable
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true, showSystemUi = true, name = "Sign In Preview")
 fun SignInPrev() {
     SignIn()
 }
