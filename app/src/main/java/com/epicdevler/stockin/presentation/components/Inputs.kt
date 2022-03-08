@@ -69,12 +69,12 @@ fun OutlinedInput(
 
 @Composable
 fun PasswordInput(
-    modifier : Modifier = Modifier,
+    modifier: Modifier = Modifier,
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     singleLine: Boolean = true,
     label: String = "Placeholder",
-    placeholder: String = ""
+    placeholder: String = "",
 ) {
     val showPassword = remember {
         mutableStateOf(false)
@@ -87,7 +87,8 @@ fun PasswordInput(
         leadingIcon = { Icons(iconType = IconType.Password) },
         label = { LabelText(text = label) },
         placeholder = { Text(text = placeholder) },
-        modifier = modifier.fillMaxWidth().padding(vertical = 16.dp),
+        modifier = modifier
+            .fillMaxWidth(),
         visualTransformation = if (showPassword.value) VisualTransformation.None else PasswordVisualTransformation(),
         trailingIcon = {
             val icon = when (showPassword.value) {

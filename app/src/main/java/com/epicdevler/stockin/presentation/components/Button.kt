@@ -12,11 +12,11 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun FilledButton(text: String = "Submit", enabled: Boolean = true, onClick: () -> Unit) {
+fun FilledButton(modifier: Modifier = Modifier, text: String = "Submit", enabled: Boolean = true, onClick: () -> Unit, ){
     Button(
         onClick = onClick,
         enabled = enabled,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(1f),
         contentPadding = PaddingValues(13.dp),
 

@@ -70,7 +70,6 @@ fun SignIn(navController: NavController? = null, viewModel: AuthViewModel? = nul
                 label = stringResource(
                     R.string.forgot_password_label
                 ),
-                modifier = Modifier.padding(bottom = 32.dp),
                 horizontalArrangement = Arrangement.Start
             )
 //        LOGIN BUTTON
@@ -79,15 +78,14 @@ fun SignIn(navController: NavController? = null, viewModel: AuthViewModel? = nul
                     scaffoldState.snackbarHostState
                         .showSnackbar(message = "Hello world", duration = SnackbarDuration.Long)
                 }
-            }, text = stringResource(R.string.login_label))
+            }, text = stringResource(R.string.login_label), modifier = Modifier.padding(top = 32.dp, bottom = 10.dp))
 
 //        TO REGISTER SCREEN BUTTON
 
             SplitButton(
                 onClick = { navController?.navigate(AuthNavigation.SignUp.route) },
-                actionText = stringResource(R.string.sign_up_label),
+                actionText = stringResource(R.string.register_label),
                 label = stringResource(R.string.dont_have_an_account_label),
-                modifier = Modifier.padding(top = 16.dp)
             )
         }
     }

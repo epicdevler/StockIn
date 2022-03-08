@@ -41,10 +41,10 @@ fun AuthUI() {
                 SignIn(navController, viewModel)
             }
             composable(route = AuthNavigation.SignUp.route) {
-                SignUp(navController)
+                SignUp(navController, viewModel)
             }
             composable(route = AuthNavigation.EmailVerification.route) {
-                EmailVerification(navController)
+                EmailVerification(navController, /*viewModel*/)
             }
         }
 }
