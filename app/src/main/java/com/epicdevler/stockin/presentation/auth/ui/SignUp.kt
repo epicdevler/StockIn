@@ -16,7 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.epicdevler.stockin.R
-import com.epicdevler.stockin.globUtils.AuthNavigation
 import com.epicdevler.stockin.presentation.auth.utils.auth.AuthContentState
 import com.epicdevler.stockin.presentation.auth.utils.auth.AuthViewModel
 import com.epicdevler.stockin.presentation.components.*
@@ -85,7 +84,7 @@ fun SignUp(navController: NavController? = null, viewModel: AuthViewModel? = nul
 //        TO LOGIN SCREEN BUTTON
 
             SplitButton(
-                onClick = { navController?.navigate(AuthNavigation.SignIn.route) },
+                onClick = { navController?.navigateUp() },
                 actionText = stringResource(R.string.login_label),
                 label = stringResource(R.string.already_have_an_account_label),
                 modifier = Modifier.padding(top = 16.dp)
