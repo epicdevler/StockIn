@@ -9,6 +9,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
@@ -16,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.epicdevler.stockin.R
+import com.epicdevler.stockin.globUtils.AuthNavigation
 import com.epicdevler.stockin.presentation.auth.utils.auth.AuthContentState
 import com.epicdevler.stockin.presentation.auth.utils.auth.AuthViewModel
 import com.epicdevler.stockin.presentation.components.*
@@ -29,9 +31,9 @@ fun SignUp(navController: NavController? = null, viewModel: AuthViewModel? = nul
     val subTitle =
         remember { mutableStateOf("Enter the following credentials to kickstart your registration process.") }
 
-    var fullNameValue by remember { mutableStateOf(TextFieldValue("")) }
-    var emailValue by remember { mutableStateOf(TextFieldValue("")) }
-    var passwordValue by remember { mutableStateOf(TextFieldValue("")) }
+    var fullNameValue by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue("")) }
+    var emailValue by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue("")) }
+    var passwordValue by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue("")) }
     val scaffoldState = rememberScaffoldState()
     val coroutineScope = rememberCoroutineScope()
 
@@ -84,7 +86,7 @@ fun SignUp(navController: NavController? = null, viewModel: AuthViewModel? = nul
 //        TO LOGIN SCREEN BUTTON
 
             SplitButton(
-                onClick = { navController?.navigateUp() },
+                onClick = { navController?.navigate(AuthNavigation.EmailVerification.route) },
                 actionText = stringResource(R.string.login_label),
                 label = stringResource(R.string.already_have_an_account_label),
                 modifier = Modifier.padding(top = 16.dp)

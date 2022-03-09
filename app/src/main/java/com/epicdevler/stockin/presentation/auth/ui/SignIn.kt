@@ -10,6 +10,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
@@ -31,8 +32,8 @@ fun SignIn(navController: NavController? = null, viewModel: AuthViewModel? = nul
     val subTitle =
         remember { mutableStateOf("Enter the following credentials to login to your account.") }
 
-    var emailValue by remember { mutableStateOf(TextFieldValue("")) }
-    var passwordValue by remember { mutableStateOf(TextFieldValue("")) }
+    var emailValue by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue("")) }
+    var passwordValue by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue("")) }
     val scaffoldState = rememberScaffoldState()
     val coroutineScope = rememberCoroutineScope()
 

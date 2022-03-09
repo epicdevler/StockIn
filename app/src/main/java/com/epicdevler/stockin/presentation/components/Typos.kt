@@ -6,6 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -34,11 +35,11 @@ fun H1(text: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun H2(text: String) {
+fun H2(text: String, color: Color = BlackPrimary) {
     Text(
         text,
         style = MaterialTheme.typography.h5,
-        color = BlackPrimary,
+        color = color,
 //        fontFamily = Roboto,
         fontWeight = FontWeight.W700,
         textAlign = TextAlign.Center,
