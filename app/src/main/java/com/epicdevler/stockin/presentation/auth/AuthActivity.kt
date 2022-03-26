@@ -57,7 +57,7 @@ fun AuthUI() {
             SignUp(navController, viewModel)
         }
         composable(route = AuthNavigation.EmailVerification.route) {
-            EmailVerification(navController, localFocusManager /*viewModel*/)
+            EmailVerification(navController)
         }
     }
 }
